@@ -31,9 +31,45 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.markdown('<h1 class="title">AI Query Generator</h1>', unsafe_allow_html=True)
-    st.markdown("<p>This tool generates and executes SQL queries based on your inputs.</p>", unsafe_allow_html=True)
+    # st.markdown('<h1 class="title">AI Query Generator</h1>', unsafe_allow_html=True)
+    # st.markdown("<p>This tool generates and executes SQL queries based on your inputs.</p>", unsafe_allow_html=True)
+        # Create a container for the logo and heading
+    col1, col2 = st.columns([1, 4])  # Adjust the ratio as needed
 
+    with col1:
+        # Add logo using Streamlit's st.image function
+        st.image("./lloyds-logo.svg", width=200, use_column_width='auto')  # Ensure the path is correct
+
+    with col2:
+        # Add heading with green text and centered alignmen
+        st.markdown(
+        """
+        <div style='height:50px; font-size: 48px; line-height:1;font-weight:600; color: green; text-align: center; display: flex; flex-direction: column; justify-content: flex-start;gap:0rem;'>
+            Lloyds Technology Centre
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Define gradient colors (rainbow-like)
+    colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF"]  # Red, Orange, Yellow, Green, Blue, Indigo, Violet
+
+    # Format the heading with HTML and CSS gradient
+    gradient_css = """
+        <style>
+            .gradient-text {
+                background: linear-gradient(to right, """ + ", ".join(colors) + """);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-size: 48px;
+                font-weight: bold;
+                padding:0px;
+            }
+        </style>
+    """
+    # Display the styled heading
+    st.markdown(gradient_css, unsafe_allow_html=True)
+    st.markdown("<h1 class='gradient-text'>Data Speak (SQL to SQL)</h1>", unsafe_allow_html=True)
     text_input = st.text_area("Enter your SQL Query here:")
 
     submit = st.button("Enhance SQL Query")
@@ -102,3 +138,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Custom CSS for the button
+st.markdown(
+    """
+    <style>
+    .stButton button {
+        color: white;
+        background-color: green;
+        font-size: 24px;
+        padding: 12px 24px;
+        border-radius: 4px;
+        border: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
