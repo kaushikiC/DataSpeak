@@ -1,0 +1,7 @@
+streamlit
+google-generativeai
+python-dotenv
+psycopg2
+pandas
+sqlite3
+altair==4.1.0
